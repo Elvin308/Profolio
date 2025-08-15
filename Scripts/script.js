@@ -4,6 +4,6 @@ function downloadResume()
     resumeLink.href = './assets/Resume_ElvinMartinez.pdf';
     resumeLink.download = 'Elvin_Martinez_Resume.pdf';
     document.body.appendChild(resumeLink);
-    link.click();
+    resumeLink.click();
     document.body.removeChild(resumeLink);
 }
