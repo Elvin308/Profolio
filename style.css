@@ -1,28 +1,47 @@
 html {
+    scroll-padding-top: 80px;
     scroll-behavior: smooth;
 }
 
-header{
+header {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: sticky;
   top: 0;
+  z-index: 1000;
+  background-color: rgba(5, 8, 22, 1);
+}
+
+h1{
+  font-family: "Monotype Corsiva", cursive;
+}
+
+h1 a {
+  border: none;
+  padding: 10px;
+}
+
+nav ul{
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  z-index: 1000;
-  background-color: black;
+  align-content: center;
+  gap: 1rem;
+  padding-right: 1rem;;
 }
 
-header h1{
-  float: left;
-  text-align: center;
+nav li{
+  list-style: none;
 }
 
-header nav{
-  align-items: center;
-  height: 100%;
-  float: right;
+nav a{
+  border: none;
+  padding: 10px;
 }
+
+
 
 .menu-toggle {
   display: none;
@@ -32,59 +51,39 @@ header nav{
   cursor: pointer;
 }
 
-nav ul{
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  align-items: center;
-  flex-wrap: none;
-  margin-right: 20px;
-}
 
-nav a{
-  border: none;
-}
-
-@media screen and (max-width: 1272px) {
+@media screen and (max-width: 1252px) {
   .menu-toggle {
-    display: block;
+    display: inline-block;
     margin-left: auto;
+  }
+
+  header{
+    justify-content: space-between;
+    align-content: flex-end;
   }
 
   nav ul {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    background: #fff;
     position: absolute;
-    top: 100%;
+    z-index: 10;
     right: 0;
-    width: 200px;
     padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(to right, #000, #333);
   }
 
-  nav ul.show {
+  header nav ul.show {
     display: flex;
   }
   
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    repeating-linear-gradient(45deg, rgba(0, 255, 255, 0.08) 0, rgba(0, 255, 255, 0.08) 1px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(-45deg, rgba(160, 32, 240, 0.08) 0, rgba(160, 32, 240, 0.08) 1px, transparent 1px, transparent 40px);
-  filter: blur(0.5px);
-  z-index: 0;
-  pointer-events: none;
   animation: pulseGrid 8s infinite alternate;
 }
 
@@ -92,15 +91,17 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #eee;
-  background: linear-gradient(180deg, #0a0a0f, #12121a 80%);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background-color: rgb(74, 76, 84);
   position: relative;
 }
 
 @keyframes pulseGrid {
   from { opacity: 0.08; }
   to { opacity: 0.15; }
+}
+
+#home {
+padding-top: 10px;
 }
 
 #self-protrait{
@@ -113,8 +114,7 @@ body {
 section {
   position: relative;
   z-index: 1;
-  padding: 100px 20px;
-  max-width: 900px;
+  max-width: 60%;
   margin: 0 auto;
 }
 
@@ -140,7 +140,7 @@ a, button {
   text-decoration: none;
 }
 
-a:hover, button:hover {
+a:hover:not(#home-link), button:hover {
   background: #0ff;
   color: #111;
   box-shadow: 0 0 15px #0ff;
